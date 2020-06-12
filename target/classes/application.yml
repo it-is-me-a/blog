@@ -1,0 +1,10 @@
+spring:
+  thymeleaf:
+    mode: HTML
+  profiles:
+    active: dev
+  messages:
+    basename: i18n/messages #如果配置文件不直接在在resources文件夹下，用来指定配置文件的位置
+
+
+comment.avatar : /img/avatar.jpg
