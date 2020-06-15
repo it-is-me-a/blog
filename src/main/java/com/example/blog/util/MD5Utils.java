@@ -13,14 +13,12 @@ public class MD5Utils {
 
     //1,使用spring自带MD5工具
     public static String code1(String str){
-        /*
         //使用一般加盐？
-        String slat = "";
+        String slat = "code";
         String s = DigestUtils.md5DigestAsHex((str+slat).getBytes());
         return s;
-        */
-        String s = DigestUtils.md5DigestAsHex(str.getBytes());
-        return s;
+        /*String s = DigestUtils.md5DigestAsHex(str.getBytes());
+        return s;*/
     }
 
 
@@ -60,6 +58,6 @@ public class MD5Utils {
 
     //main方法测试一下
     public static void main(String[] args) {
-        System.out.println(code1("111111"));
+        System.out.println(code1("18309293959"));
     }
 }

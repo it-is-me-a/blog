@@ -1,44 +1,12 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.w3.org/1999/xhtml">
 <head th:replace="_fragments :: head(~{::title})">
-	<meta charset="utf-8" />
-	<!--这是移动端预览设置-->
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>首页</title>
-	<!--引入Semantic UI-->
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
-	<!--引入自己写的css-->
-	<link rel="stylesheet" href="../static/css/me.css" />
 </head>
-<body>
+<body onload="InitLive2D()">
 		
 		<!--导航-->
-		<nav th:replace="_fragments :: menu(1)" class="ui inverted attached segment m-padded-tb-mini m-shadow-small"> <!--ui表示UI组件，inverted表示颜色反转-->
-			<!--添加一个导航组件-->
-			<div class="ui container">
-				<div class="ui inverted secondary stackable menu"><!--stackable为的是手机端的导航：可堆叠的-->
-					<h2 class="ui teal header item">Blog</h2>
-					<a href="#" class="m-item item m-mobile-hide"><i class="home icon"></i>首页</a><!--<i class="home icon">加图标-->
-					<a href="#" class="m-item item m-mobile-hide"><i class="idea icon"></i>分类</a>
-					<a href="#" class="m-item item m-mobile-hide"><i class="tags icon"></i>标签</a>
-					<a href="#" class="m-item item m-mobile-hide"><i class="clone icon"></i>归档</a>
-					<a href="#" class="m-item item m-mobile-hide"><i class="info icon"></i>关于我</a>
-					<!--加入搜索框-->
-					<div class="right m-item item m-mobile-hide">
-						<div class="ui icon input"> <!--这个div中可以放icon图标，也可以放input输入框-->
-							<input type="text" placeholder="Search..." >
-							<i class="search link icon"></i>
-						</div>
-					</div>
-				</div>
-			</div>
-			
-			<!--加一个图标-->
-			<a href="#" class="ui menu toggle black icon button m-right-top m-mobile-show"><!--menu toggle用了点击显示其他内容，用js处理-->
-				<i class="sidebar icon"></i>
-			</a>
-			
-		</nav>
+		<nav th:replace="_fragments :: menu(1)"></nav>
 					
 		<!--中间内容-->
 		<div class="m-padded-tb-big">
@@ -196,54 +164,26 @@
 				</div>
 			</div>			
 		</div>
-		
-		<br /><br />	
-		
-		
+
+
+
+		<!--看板娘-->
+		<div th:replace="_fragments :: kanbanniang" id="landlord">
+			<div class="message" style="opacity:0"></div><!--style="opacity:0"设置透明度-->
+			<canvas id="live2d" width="280" height="250"></canvas><!--mycanvas-->
+		</div>
+
+
+		<br /><br />
 		<!--底部-->
-		<footer th:replace="_fragments :: footer" class="ui inverted vertical segment m-padded-tb-huge"><!--vertical取消圆角-->
-			<!--加一个容器-->
-			<div class="ui center aligned container"><!-- center aligned居中-->
-				<!--做一些一列一列的布局，一共分为16分-->
-				<div class="ui inverted divided stackable grid"><!--divided分割样式-->
-					<!--占3份-->
-					<div class="three wide column">
-						<div class="ui inverted link list">
-							<div class="item">
-								<img src="../static/img/wechat.jpg" th:src="@{/img/wechat.jpg}" class="ui rounded image" alt="" style="width: 110px"/>
-							</div>
-						</div>
-					</div>
-					
-
-					<div class="five wide column">
-						<h4 class="ui inverted header">联系我</h4>
-						<div class="ui inverted link list">
-							<a href="#" class="item">Email: zhangzeqing001@gmail.com</a>
-							<a href="#" class="item">QQ: 1219171762</a>
-						</div>
-					</div>					
-					
-					<!--占7份-->
-					<div class="eight wide column">
-						<h4 class="ui inverted header">个人介绍</h4>
-						<p class="m-text-thin m-text-spaced m-opacity-tiny">这是我的个人博客、会分享关于编程、写作、思考相关的任何内容，希望可以给来到这儿的人有所帮助...</p>
-					</div>
-				</div>
-				
-				<!--画一条线-->
-				<div class="ui inverted section divider"></div>
-				<p class="m-text-thin m-text-spaced m-opacity-tiny">Copyright © 2016 - 2017 Lirenmi Designed by Lirenmi</p>
-				
-			</div>			
-		</footer>
-
-
+		<footer th:replace="_fragments :: footer"></footer>
 
 
 		<!--/*/<th:block th:replace="_fragments :: script">/*/-->
 			<script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
 			<script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+			<script src="../static/lib/live2d/js/live2d.min.js"></script>
+			<script src="../static/lib/live2d/js/message.js"></script>
 		<!--/*/</th:block>/*/-->
 
 		<!--处理：menu toggle，要写成：menu.toggle -->
@@ -251,6 +191,99 @@
 			$('.menu.toggle').click(function(){
 				$('.m-item').toggleClass('m-mobile-hide');  /*意思是如果有m-mobile-hide样式，一点击就取消；如果没有，一点击就出现*/
 			});
-		</script>		
-	</body>
+
+            /*鼠标放上去，看板娘显示高考倒计时*/
+            /*$('#live2d').popup({
+                popup : $('#timer'), /!*鼠标放上去显示*!/
+                on : 'click',    /!*按下时出现*!/
+                position : 'right'  /!*位置*!/
+            });*/
+		</script>
+
+        <!--/*/<th:block th:replace="_fragments :: kanbanniangscript">/*/-->
+
+		<script type="text/javascript">
+            var message_Path = '/lib/live2d/'
+            var home_Path = 'http://localhost:8080/'  //此处修改为你的域名，必须带斜杠
+		</script>
+
+		<script>
+			var u = "/lib/live2d/model/Pio/model.json"
+            var LAppDefine = {
+                // 调试，true时会在console里显示日志
+                DEBUG_LOG : true,
+                DEBUG_MOUSE_LOG : false, // 鼠标相关日志
+                //  全部设定
+                //这里配置canvsa元素的id
+                CANVAS_ID : "live2d",
+                //是否开启滚轮缩放，默认true
+                IS_SCROLL_SCALE : true,
+                // 画面最大缩放级别
+                VIEW_MAX_SCALE : 2,
+                // 画面最小缩放级别
+                VIEW_MIN_SCALE : 0.8,
+
+                VIEW_LOGICAL_LEFT : -1,
+                VIEW_LOGICAL_RIGHT : 1,
+
+                VIEW_LOGICAL_MAX_LEFT : -2,
+                VIEW_LOGICAL_MAX_RIGHT : 2,
+                VIEW_LOGICAL_MAX_BOTTOM : -2,
+                VIEW_LOGICAL_MAX_TOP : 2,
+
+                // 动作优先级常量
+                PRIORITY_NONE : 0,
+                PRIORITY_IDLE : 1,
+                PRIORITY_NORMAL : 2,
+                PRIORITY_FORCE : 3,
+
+                //是否绑定切换模型按钮
+                IS_BIND_BUTTON : false,
+                //绑定按钮元素id
+                BUTTON_ID : "Change",
+                //是否开启模型切换完成之前禁止按钮点击的选项，默认为true
+                IS_BAN_BUTTON : true,
+                //设置按钮禁止状态时的class，可自定义样式，前提是IS_BAN_BUTTON为true
+                BAN_BUTTON_CLASS : "inactive",
+                //设置按钮正常状态时的class
+                NORMAL_BUTTON_CLASS : "active",
+                //衣服切换模式 目前只支持两种 sequence-顺序 random-随机
+                //需事先配置好json文件里的textures属性
+                //暂不支持保存功能
+                TEXURE_CHANGE_MODE : "sequence",
+                IS_START_TEXURE_CHANGE : true,
+                TEXURE_BUTTON_ID : "live2d",
+                /**
+                 *  模型定义
+                 自定义配置模型，同一数组内放置两个模型则为开启双模型
+                 三模型也只取数组里的前两个
+                 模型出现的顺序与数组一致
+                 这里请用相对路径配置
+                 */
+                MODELS:
+                    [
+                        [u]
+                    ],
+
+                // 与外部定义的json文件匹配
+                MOTION_GROUP_IDLE : "idle", // 空闲时
+                MOTION_GROUP_TAP_BODY : "tap_body", // 点击身体时
+                MOTION_GROUP_FLICK_HEAD : "flick_head", // 抚摸头部
+                MOTION_GROUP_PINCH_IN : "pinch_in", // 放大时
+                MOTION_GROUP_PINCH_OUT : "pinch_out", // 缩小时
+                MOTION_GROUP_SHAKE : "shake", // 摇晃
+                //如果有自定义的动作分组可以放在这里
+
+                // 与外部定义json文件相匹配
+                HIT_AREA_HEAD : "head",
+                HIT_AREA_BODY : "body",
+
+                //初始化的模型大小
+                SCALE : 1.0
+            };
+		</script>
+        <!--/*/</th:block>/*/-->
+
+
+</body>
 </html>

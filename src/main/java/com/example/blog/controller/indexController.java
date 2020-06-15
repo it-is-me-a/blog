@@ -10,6 +10,7 @@ import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import com.example.blog.util.TimerUtil;
 
 /**
  * @author Emma
@@ -34,6 +35,8 @@ public class indexController {
         model.addAttribute("types",typeService.listTypeTop(8));
         /*拿到排名前10的tag展示在对应区域*/
         model.addAttribute("tags",tagService.listTagTop(10));
+        /*拿到高考倒计*/
+        model.addAttribute("time", TimerUtil.fun());
         /*拿到排名前5的文章展示在对应区域*/
         model.addAttribute("recommendBlogs",blogService.listRecommendBlogTop(5));
         return "index";

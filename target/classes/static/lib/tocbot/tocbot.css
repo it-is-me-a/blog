@@ -1,5 +1,4 @@
 /*生成目录的*/
-
 .toc {
     overflow-y: auto
 }
@@ -24,7 +23,6 @@
     padding: 4px 0;
     font-weight: 300;
 }
-
 .toc-list li a:hover {
     color: #00B5AD;
 }
@@ -55,7 +53,7 @@ a.toc-link {
 }
 
 .toc-link::before {
-    background-color: #EEE;
+    /*background-color: #EEE;*/
     content: ' ';
     display: inline-block;
     height: 20px;

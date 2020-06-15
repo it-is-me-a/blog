@@ -77,7 +77,7 @@
   text-decoration: line-through;
 }
 
-.typo address, caption, cite, code, dfn, em, th, var {
+.typo address, caption, cite, code, dfn, th, var {
   font-style: normal;
   font-weight: 400;
 }
@@ -312,12 +312,12 @@
 
 .typo-em, .typo em, legend, caption {
   color: #000;
-  font-weight: inherit;
+  font-weight: inherit; /*字体粗细：规定从父元素继承字体的粗细。*/
 }
 
 /* 着重号，只能在少量（少于100个字符）且全是全角字符的情况下使用 */
 .typo-em {
-  position: relative;
+  position: relative; /*设置定位方式*/
 }
 
 .typo-em:after {
@@ -334,3 +334,12 @@
 .typo img {
   max-width: 100%;
 }
+
+/*code的格式*/
+.typo code, .typo-code {
+  color: #c7254e;
+  background-color: #f9f2f4;
+  border-radius: 2px;
+  font-weight: inherit; /*字体粗细：规定从父元素继承字体的粗细。*/
+}
+

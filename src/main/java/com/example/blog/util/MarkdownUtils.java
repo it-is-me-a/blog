@@ -76,12 +76,27 @@ public class MarkdownUtils {
 
 
     public static void main(String[] args) {
+        /*表格的测试*/
         String table = "| hello | hi   | 哈哈哈   |\n" +
                 "| ----- | ---- | ----- |\n" +
                 "| 斯维尔多  | 士大夫  | f啊    |\n" +
                 "| 阿什顿发  | 非固定杆 | 撒阿什顿发 |\n" +
                 "\n";
+        /*链接的测试*/
         String a = "[imCoding 爱编程](http://www.lirenmi.cn)";
-        System.out.println(markdownToHtmlExtensions(a));
+
+        /*标红的测试*/
+        String s1 = "`这是行内代码`";
+        /*加粗的测试*/
+        String s2 = "**加粗的test**";
+        String s3 = "~~带删除线的test~~";
+        String s4 = "*斜体的test*";
+
+
+        System.out.println(markdownToHtmlExtensions(s1));
+        System.out.println(markdownToHtmlExtensions(s2));
+        System.out.println(markdownToHtmlExtensions(s3));
+        System.out.println(markdownToHtmlExtensions(s4));
+        //System.out.println(markdownToHtmlExtensions(a));
     }
 }
