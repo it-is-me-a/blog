@@ -36,7 +36,7 @@ public class indexController {
         /*拿到排名前10的tag展示在对应区域*/
         model.addAttribute("tags",tagService.listTagTop(10));
         /*拿到高考倒计*/
-        model.addAttribute("time", TimerUtil.fun());
+        model.addAttribute("countdown", TimerUtil.fun());
         /*拿到排名前5的文章展示在对应区域*/
         model.addAttribute("recommendBlogs",blogService.listRecommendBlogTop(5));
         return "index";

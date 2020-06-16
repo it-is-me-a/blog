@@ -1,0 +1,209 @@
+2020-06-16 16:48:30.961  INFO 11656 --- [restartedMain] com.example.blog.BlogApplication         : Starting BlogApplication on LAPTOP-4VJ6SF8Q with PID 11656 (D:\Code\blog\target\classes started by Emma in D:\Code\blog)
+2020-06-16 16:48:30.970 DEBUG 11656 --- [restartedMain] com.example.blog.BlogApplication         : Running with Spring Boot v2.3.0.RELEASE, Spring v5.2.6.RELEASE
+2020-06-16 16:48:30.970  INFO 11656 --- [restartedMain] com.example.blog.BlogApplication         : The following profiles are active: dev
+2020-06-16 16:48:31.071  INFO 11656 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-06-16 16:48:31.072  INFO 11656 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-06-16 16:48:32.775  INFO 11656 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-06-16 16:48:32.873  INFO 11656 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 83ms. Found 5 JPA repository interfaces.
+2020-06-16 16:48:34.054  INFO 11656 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-06-16 16:48:34.076  INFO 11656 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-06-16 16:48:34.077  INFO 11656 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.35]
+2020-06-16 16:48:34.326  INFO 11656 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-06-16 16:48:34.331  INFO 11656 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 3259 ms
+2020-06-16 16:48:34.539  INFO 11656 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-06-16 16:48:34.601  INFO 11656 --- [task-1] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-06-16 16:48:34.674  INFO 11656 --- [task-1] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.15.Final
+2020-06-16 16:48:34.858  INFO 11656 --- [task-1] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-06-16 16:48:34.974  INFO 11656 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-06-16 16:48:35.103  INFO 11656 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-06-16 16:48:35.127  INFO 11656 --- [task-1] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2020-06-16 16:48:35.182  WARN 11656 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-06-16 16:48:35.838  INFO 11656 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-06-16 16:48:35.871  INFO 11656 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-06-16 16:48:35.873  INFO 11656 --- [restartedMain] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
+2020-06-16 16:48:36.304  INFO 11656 --- [task-1] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-06-16 16:48:36.327  INFO 11656 --- [task-1] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-06-16 16:48:37.412  INFO 11656 --- [restartedMain] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
+2020-06-16 16:48:37.425  INFO 11656 --- [restartedMain] com.example.blog.BlogApplication         : Started BlogApplication in 6.966 seconds (JVM running for 7.847)
+2020-06-16 16:49:07.596  INFO 11656 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-06-16 16:49:07.596  INFO 11656 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-06-16 16:49:07.607  INFO 11656 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 11 ms
+2020-06-16 16:49:07.629  INFO 11656 --- [http-nio-8080-exec-1] com.example.blog.aspect.LogAspect        : Request : RequestLog{url='http://localhost:8080/', ip='127.0.0.1', ClassMethod='com.example.blog.controller.indexController.index', args=[Page request [number: 0, size 5, sort: creatTime: DESC], {}]}
+2020-06-16 16:49:07.738  WARN 11656 --- [http-nio-8080-exec-1] org.hibernate.orm.deprecation            : HHH90000016: Found use of deprecated 'collection property' syntax in HQL/JPQL query [t.blogs.size]; use collection function syntax instead [size(t.blogs)].
+2020-06-16 16:49:07.762  WARN 11656 --- [http-nio-8080-exec-1] org.hibernate.orm.deprecation            : HHH90000016: Found use of deprecated 'collection property' syntax in HQL/JPQL query [t.blogs.size]; use collection function syntax instead [size(t.blogs)].
+2020-06-16 16:49:07.772  INFO 11656 --- [http-nio-8080-exec-1] com.example.blog.aspect.LogAspect        : Result : index
+2020-06-16 16:49:24.243  INFO 11656 --- [http-nio-8080-exec-2] com.example.blog.aspect.LogAspect        : Request : RequestLog{url='http://localhost:8080/types/-1', ip='127.0.0.1', ClassMethod='com.example.blog.controller.TypeShowController.types', args=[Page request [number: 0, size 10, sort: creatTime: DESC], -1, {}]}
+2020-06-16 16:49:24.269  INFO 11656 --- [http-nio-8080-exec-2] com.example.blog.aspect.LogAspect        : Result : types
+2020-06-16 16:49:26.244  INFO 11656 --- [http-nio-8080-exec-6] com.example.blog.aspect.LogAspect        : Request : RequestLog{url='http://localhost:8080/tags/-1', ip='127.0.0.1', ClassMethod='com.example.blog.controller.TagShowController.tags', args=[Page request [number: 0, size 10, sort: creatTime: DESC], -1, {}]}
+2020-06-16 16:49:26.280  INFO 11656 --- [http-nio-8080-exec-6] com.example.blog.aspect.LogAspect        : Result : tags
+2020-06-16 16:49:27.708  INFO 11656 --- [http-nio-8080-exec-10] com.example.blog.aspect.LogAspect        : Request : RequestLog{url='http://localhost:8080/archives/-1', ip='127.0.0.1', ClassMethod='com.example.blog.controller.archivesShowController.archives', args=[-1, {}]}
+2020-06-16 16:49:27.735  INFO 11656 --- [http-nio-8080-exec-10] com.example.blog.aspect.LogAspect        : Result : archives
+2020-06-16 16:49:30.007  INFO 11656 --- [http-nio-8080-exec-8] com.example.blog.aspect.LogAspect        : Request : RequestLog{url='http://localhost:8080/about', ip='127.0.0.1', ClassMethod='com.example.blog.controller.aboutShowController.about', args=[]}
+2020-06-16 16:49:30.010  INFO 11656 --- [http-nio-8080-exec-8] com.example.blog.aspect.LogAspect        : Result : about
+2020-06-16 16:49:32.450  INFO 11656 --- [http-nio-8080-exec-9] com.example.blog.aspect.LogAspect        : Request : RequestLog{url='http://localhost:8080/archives/-1', ip='127.0.0.1', ClassMethod='com.example.blog.controller.archivesShowController.archives', args=[-1, {}]}
+2020-06-16 16:49:32.467  INFO 11656 --- [http-nio-8080-exec-9] com.example.blog.aspect.LogAspect        : Result : archives
+2020-06-16 16:49:44.058  INFO 11656 --- [http-nio-8080-exec-7] com.example.blog.aspect.LogAspect        : Request : RequestLog{url='http://localhost:8080/about', ip='127.0.0.1', ClassMethod='com.example.blog.controller.aboutShowController.about', args=[]}
+2020-06-16 16:49:44.058  INFO 11656 --- [http-nio-8080-exec-7] com.example.blog.aspect.LogAspect        : Result : about
+2020-06-16 16:55:52.352  INFO 484 --- [restartedMain] com.example.blog.BlogApplication         : Starting BlogApplication on LAPTOP-4VJ6SF8Q with PID 484 (D:\Code\blog\target\classes started by Emma in D:\Code\blog)
+2020-06-16 16:55:52.355 DEBUG 484 --- [restartedMain] com.example.blog.BlogApplication         : Running with Spring Boot v2.3.0.RELEASE, Spring v5.2.6.RELEASE
+2020-06-16 16:55:52.356  INFO 484 --- [restartedMain] com.example.blog.BlogApplication         : The following profiles are active: dev
+2020-06-16 16:55:52.441  INFO 484 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-06-16 16:55:52.442  INFO 484 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-06-16 16:55:53.394  INFO 484 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-06-16 16:55:53.483  INFO 484 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 80ms. Found 5 JPA repository interfaces.
+2020-06-16 16:55:54.447  INFO 484 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-06-16 16:55:54.455  INFO 484 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-06-16 16:55:54.460  INFO 484 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.35]
+2020-06-16 16:55:54.569  INFO 484 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-06-16 16:55:54.569  INFO 484 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2127 ms
+2020-06-16 16:55:54.778  INFO 484 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-06-16 16:55:54.839  INFO 484 --- [task-1] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-06-16 16:55:54.877  INFO 484 --- [task-1] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.15.Final
+2020-06-16 16:55:54.984  INFO 484 --- [task-1] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-06-16 16:55:55.066  INFO 484 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-06-16 16:55:55.142  WARN 484 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-06-16 16:55:55.174  INFO 484 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-06-16 16:55:55.193  INFO 484 --- [task-1] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2020-06-16 16:55:55.796  INFO 484 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-06-16 16:55:55.828  INFO 484 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-06-16 16:55:55.829  INFO 484 --- [restartedMain] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
+2020-06-16 16:55:56.352  INFO 484 --- [task-1] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-06-16 16:55:56.355  INFO 484 --- [task-1] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-06-16 16:55:57.018  INFO 484 --- [restartedMain] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
+2020-06-16 16:55:57.037  INFO 484 --- [restartedMain] com.example.blog.BlogApplication         : Started BlogApplication in 5.112 seconds (JVM running for 5.697)
+2020-06-16 16:56:30.157  INFO 484 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-06-16 16:56:30.157  INFO 484 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-06-16 16:56:30.174  INFO 484 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 17 ms
+2020-06-16 16:56:30.208  INFO 484 --- [http-nio-8080-exec-1] com.example.blog.aspect.LogAspect        : Request : RequestLog{url='http://localhost:8080/about', ip='127.0.0.1', ClassMethod='com.example.blog.controller.aboutShowController.about', args=[]}
+2020-06-16 16:56:30.224  INFO 484 --- [http-nio-8080-exec-1] com.example.blog.aspect.LogAspect        : Result : about
+2020-06-16 17:06:25.077  INFO 484 --- [http-nio-8080-exec-4] com.example.blog.aspect.LogAspect        : Request : RequestLog{url='http://localhost:8080/about', ip='127.0.0.1', ClassMethod='com.example.blog.controller.aboutShowController.about', args=[]}
+2020-06-16 17:06:25.078  INFO 484 --- [http-nio-8080-exec-4] com.example.blog.aspect.LogAspect        : Result : about
+2020-06-16 17:06:50.698  INFO 484 --- [http-nio-8080-exec-9] com.example.blog.aspect.LogAspect        : Request : RequestLog{url='http://localhost:8080/', ip='127.0.0.1', ClassMethod='com.example.blog.controller.indexController.index', args=[Page request [number: 0, size 5, sort: creatTime: DESC], {}]}
+2020-06-16 17:06:50.847  WARN 484 --- [http-nio-8080-exec-9] org.hibernate.orm.deprecation            : HHH90000016: Found use of deprecated 'collection property' syntax in HQL/JPQL query [t.blogs.size]; use collection function syntax instead [size(t.blogs)].
+2020-06-16 17:06:50.898  WARN 484 --- [http-nio-8080-exec-9] org.hibernate.orm.deprecation            : HHH90000016: Found use of deprecated 'collection property' syntax in HQL/JPQL query [t.blogs.size]; use collection function syntax instead [size(t.blogs)].
+2020-06-16 17:06:50.915  INFO 484 --- [http-nio-8080-exec-9] com.example.blog.aspect.LogAspect        : Result : index
+2020-06-16 17:06:53.241  INFO 484 --- [http-nio-8080-exec-8] com.example.blog.aspect.LogAspect        : Request : RequestLog{url='http://localhost:8080/blog/9', ip='127.0.0.1', ClassMethod='com.example.blog.controller.indexController.blog', args=[9, {}]}
+2020-06-16 17:06:53.400  INFO 484 --- [http-nio-8080-exec-8] com.example.blog.aspect.LogAspect        : Result : blog
+2020-06-16 17:06:54.310  INFO 484 --- [http-nio-8080-exec-4] com.example.blog.aspect.LogAspect        : Request : RequestLog{url='http://localhost:8080/comments/9', ip='127.0.0.1', ClassMethod='com.example.blog.controller.commentController.comments', args=[9, {}]}
+2020-06-16 17:06:54.379  INFO 484 --- [http-nio-8080-exec-4] com.example.blog.aspect.LogAspect        : Result : blog :: commentList
+2020-06-16 17:07:00.687  INFO 484 --- [http-nio-8080-exec-5] com.example.blog.aspect.LogAspect        : Request : RequestLog{url='http://localhost:8080/blog/9', ip='127.0.0.1', ClassMethod='com.example.blog.controller.indexController.blog', args=[9, {}]}
+2020-06-16 17:07:00.714  INFO 484 --- [http-nio-8080-exec-5] com.example.blog.aspect.LogAspect        : Result : blog
+2020-06-16 17:07:01.932  INFO 484 --- [http-nio-8080-exec-2] com.example.blog.aspect.LogAspect        : Request : RequestLog{url='http://localhost:8080/comments/9', ip='127.0.0.1', ClassMethod='com.example.blog.controller.commentController.comments', args=[9, {}]}
+2020-06-16 17:07:01.939  INFO 484 --- [http-nio-8080-exec-2] com.example.blog.aspect.LogAspect        : Result : blog :: commentList
+2020-06-16 17:07:31.487  INFO 484 --- [http-nio-8080-exec-10] com.example.blog.aspect.LogAspect        : Request : RequestLog{url='http://localhost:8080/comments', ip='127.0.0.1', ClassMethod='com.example.blog.controller.commentController.post', args=[Comment{id=null, nickName='janny', email='cc@163.com12345', content='123', avatar='null', createTime=null}, org.apache.catalina.session.StandardSessionFacade@28fc5ef7]}
+2020-06-16 17:07:31.567  INFO 484 --- [http-nio-8080-exec-10] com.example.blog.aspect.LogAspect        : Result : redirect:/comments/9
+2020-06-16 17:07:31.599  INFO 484 --- [http-nio-8080-exec-7] com.example.blog.aspect.LogAspect        : Request : RequestLog{url='http://localhost:8080/comments/9', ip='127.0.0.1', ClassMethod='com.example.blog.controller.commentController.comments', args=[9, {}]}
+2020-06-16 17:07:31.610  INFO 484 --- [http-nio-8080-exec-7] com.example.blog.aspect.LogAspect        : Result : blog :: commentList
+2020-06-16 17:07:39.204  INFO 484 --- [http-nio-8080-exec-3] com.example.blog.aspect.LogAspect        : Request : RequestLog{url='http://localhost:8080/comments', ip='127.0.0.1', ClassMethod='com.example.blog.controller.commentController.post', args=[Comment{id=null, nickName='janny', email='cc@163.com12345', content='hello', avatar='null', createTime=null}, org.apache.catalina.session.StandardSessionFacade@28fc5ef7]}
+2020-06-16 17:07:39.240  INFO 484 --- [http-nio-8080-exec-3] com.example.blog.aspect.LogAspect        : Result : redirect:/comments/9
+2020-06-16 17:07:39.245  INFO 484 --- [http-nio-8080-exec-2] com.example.blog.aspect.LogAspect        : Request : RequestLog{url='http://localhost:8080/comments/9', ip='127.0.0.1', ClassMethod='com.example.blog.controller.commentController.comments', args=[9, {}]}
+2020-06-16 17:07:39.271  INFO 484 --- [http-nio-8080-exec-2] com.example.blog.aspect.LogAspect        : Result : blog :: commentList
+2020-06-16 17:07:57.187  INFO 484 --- [http-nio-8080-exec-6] com.example.blog.aspect.LogAspect        : Request : RequestLog{url='http://localhost:8080/blog/9', ip='127.0.0.1', ClassMethod='com.example.blog.controller.indexController.blog', args=[9, {}]}
+2020-06-16 17:07:57.210  INFO 484 --- [http-nio-8080-exec-6] com.example.blog.aspect.LogAspect        : Result : blog
+2020-06-16 17:07:58.350  INFO 484 --- [http-nio-8080-exec-2] com.example.blog.aspect.LogAspect        : Request : RequestLog{url='http://localhost:8080/comments/9', ip='127.0.0.1', ClassMethod='com.example.blog.controller.commentController.comments', args=[9, {}]}
+2020-06-16 17:07:58.367  INFO 484 --- [http-nio-8080-exec-2] com.example.blog.aspect.LogAspect        : Result : blog :: commentList
+2020-06-16 17:08:04.565  INFO 484 --- [http-nio-8080-exec-9] com.example.blog.aspect.LogAspect        : Request : RequestLog{url='http://localhost:8080/blog/5', ip='127.0.0.1', ClassMethod='com.example.blog.controller.indexController.blog', args=[5, {}]}
+2020-06-16 17:08:04.596  INFO 484 --- [http-nio-8080-exec-9] com.example.blog.aspect.LogAspect        : Result : blog
+2020-06-16 17:08:05.570  INFO 484 --- [http-nio-8080-exec-4] com.example.blog.aspect.LogAspect        : Request : RequestLog{url='http://localhost:8080/comments/5', ip='127.0.0.1', ClassMethod='com.example.blog.controller.commentController.comments', args=[5, {}]}
+2020-06-16 17:08:05.581  INFO 484 --- [http-nio-8080-exec-4] com.example.blog.aspect.LogAspect        : Result : blog :: commentList
+2020-06-16 17:08:15.045  INFO 484 --- [http-nio-8080-exec-2] com.example.blog.aspect.LogAspect        : Request : RequestLog{url='http://localhost:8080/comments', ip='127.0.0.1', ClassMethod='com.example.blog.controller.commentController.post', args=[Comment{id=null, nickName='Emma', email='123@qq.com', content='123', avatar='null', createTime=null}, org.apache.catalina.session.StandardSessionFacade@28fc5ef7]}
+2020-06-16 17:08:15.073  INFO 484 --- [http-nio-8080-exec-2] com.example.blog.aspect.LogAspect        : Result : redirect:/comments/5
+2020-06-16 17:08:15.081  INFO 484 --- [http-nio-8080-exec-8] com.example.blog.aspect.LogAspect        : Request : RequestLog{url='http://localhost:8080/comments/5', ip='127.0.0.1', ClassMethod='com.example.blog.controller.commentController.comments', args=[5, {}]}
+2020-06-16 17:08:15.091  INFO 484 --- [http-nio-8080-exec-8] com.example.blog.aspect.LogAspect        : Result : blog :: commentList
+2020-06-16 17:08:45.660  INFO 484 --- [http-nio-8080-exec-5] com.example.blog.aspect.LogAspect        : Request : RequestLog{url='http://localhost:8080/archives/-1', ip='127.0.0.1', ClassMethod='com.example.blog.controller.archivesShowController.archives', args=[-1, {}]}
+2020-06-16 17:08:45.687  INFO 484 --- [http-nio-8080-exec-5] com.example.blog.aspect.LogAspect        : Result : archives
+2020-06-16 17:08:49.505  INFO 484 --- [http-nio-8080-exec-1] com.example.blog.aspect.LogAspect        : Request : RequestLog{url='http://localhost:8080/archives/2020%E5%B9%B405%E6%9C%88', ip='127.0.0.1', ClassMethod='com.example.blog.controller.archivesShowController.archives', args=[2020年05月, {}]}
+2020-06-16 17:08:49.519  INFO 484 --- [http-nio-8080-exec-1] com.example.blog.aspect.LogAspect        : Result : archives
+2020-06-16 17:09:20.732  INFO 484 --- [http-nio-8080-exec-4] com.example.blog.aspect.LogAspect        : Request : RequestLog{url='http://localhost:8080/archives/2020%E5%B9%B405%E6%9C%88', ip='127.0.0.1', ClassMethod='com.example.blog.controller.archivesShowController.archives', args=[2020年05月, {}]}
+2020-06-16 17:09:20.744  INFO 484 --- [http-nio-8080-exec-4] com.example.blog.aspect.LogAspect        : Result : archives
+2020-06-16 17:09:40.951  INFO 484 --- [http-nio-8080-exec-2] com.example.blog.aspect.LogAspect        : Request : RequestLog{url='http://localhost:8080/blog/9', ip='127.0.0.1', ClassMethod='com.example.blog.controller.indexController.blog', args=[9, {}]}
+2020-06-16 17:09:40.977  INFO 484 --- [http-nio-8080-exec-2] com.example.blog.aspect.LogAspect        : Result : blog
+2020-06-16 17:09:42.071  INFO 484 --- [http-nio-8080-exec-10] com.example.blog.aspect.LogAspect        : Request : RequestLog{url='http://localhost:8080/comments/9', ip='127.0.0.1', ClassMethod='com.example.blog.controller.commentController.comments', args=[9, {}]}
+2020-06-16 17:09:42.088  INFO 484 --- [http-nio-8080-exec-10] com.example.blog.aspect.LogAspect        : Result : blog :: commentList
+2020-06-16 17:10:50.911  INFO 484 --- [http-nio-8080-exec-3] com.example.blog.aspect.LogAspect        : Request : RequestLog{url='http://localhost:8080/blog/9', ip='127.0.0.1', ClassMethod='com.example.blog.controller.indexController.blog', args=[9, {}]}
+2020-06-16 17:10:50.936  INFO 484 --- [http-nio-8080-exec-3] com.example.blog.aspect.LogAspect        : Result : blog
+2020-06-16 17:10:52.030  INFO 484 --- [http-nio-8080-exec-9] com.example.blog.aspect.LogAspect        : Request : RequestLog{url='http://localhost:8080/comments/9', ip='127.0.0.1', ClassMethod='com.example.blog.controller.commentController.comments', args=[9, {}]}
+2020-06-16 17:10:52.065  INFO 484 --- [http-nio-8080-exec-9] com.example.blog.aspect.LogAspect        : Result : blog :: commentList
+2020-06-16 17:14:36.158  INFO 484 --- [http-nio-8080-exec-7] com.example.blog.aspect.LogAspect        : Request : RequestLog{url='http://localhost:8080/blog/9', ip='127.0.0.1', ClassMethod='com.example.blog.controller.indexController.blog', args=[9, {}]}
+2020-06-16 17:14:36.184  INFO 484 --- [http-nio-8080-exec-7] com.example.blog.aspect.LogAspect        : Result : blog
+2020-06-16 17:14:37.510  INFO 484 --- [http-nio-8080-exec-8] com.example.blog.aspect.LogAspect        : Request : RequestLog{url='http://localhost:8080/comments/9', ip='127.0.0.1', ClassMethod='com.example.blog.controller.commentController.comments', args=[9, {}]}
+2020-06-16 17:14:37.528  INFO 484 --- [http-nio-8080-exec-8] com.example.blog.aspect.LogAspect        : Result : blog :: commentList
+2020-06-16 17:17:42.700  INFO 484 --- [http-nio-8080-exec-6] com.example.blog.aspect.LogAspect        : Request : RequestLog{url='http://localhost:8080/blog/9', ip='127.0.0.1', ClassMethod='com.example.blog.controller.indexController.blog', args=[9, {}]}
+2020-06-16 17:17:42.716  INFO 484 --- [http-nio-8080-exec-6] com.example.blog.aspect.LogAspect        : Result : blog
+2020-06-16 17:17:43.850  INFO 484 --- [http-nio-8080-exec-7] com.example.blog.aspect.LogAspect        : Request : RequestLog{url='http://localhost:8080/comments/9', ip='127.0.0.1', ClassMethod='com.example.blog.controller.commentController.comments', args=[9, {}]}
+2020-06-16 17:17:43.868  INFO 484 --- [http-nio-8080-exec-7] com.example.blog.aspect.LogAspect        : Result : blog :: commentList
+2020-06-16 17:19:26.901  INFO 484 --- [http-nio-8080-exec-6] com.example.blog.aspect.LogAspect        : Request : RequestLog{url='http://localhost:8080/blog/9', ip='127.0.0.1', ClassMethod='com.example.blog.controller.indexController.blog', args=[9, {}]}
+2020-06-16 17:19:26.918  INFO 484 --- [http-nio-8080-exec-6] com.example.blog.aspect.LogAspect        : Result : blog
+2020-06-16 17:19:28.069  INFO 484 --- [http-nio-8080-exec-10] com.example.blog.aspect.LogAspect        : Request : RequestLog{url='http://localhost:8080/comments/9', ip='127.0.0.1', ClassMethod='com.example.blog.controller.commentController.comments', args=[9, {}]}
+2020-06-16 17:19:28.084  INFO 484 --- [http-nio-8080-exec-10] com.example.blog.aspect.LogAspect        : Result : blog :: commentList
+2020-06-16 17:20:52.056  INFO 484 --- [http-nio-8080-exec-3] com.example.blog.aspect.LogAspect        : Request : RequestLog{url='http://localhost:8080/blog/9', ip='127.0.0.1', ClassMethod='com.example.blog.controller.indexController.blog', args=[9, {}]}
+2020-06-16 17:20:52.065  INFO 484 --- [http-nio-8080-exec-3] com.example.blog.aspect.LogAspect        : Result : blog
+2020-06-16 17:20:53.073  INFO 484 --- [http-nio-8080-exec-4] com.example.blog.aspect.LogAspect        : Request : RequestLog{url='http://localhost:8080/comments/9', ip='127.0.0.1', ClassMethod='com.example.blog.controller.commentController.comments', args=[9, {}]}
+2020-06-16 17:20:53.088  INFO 484 --- [http-nio-8080-exec-4] com.example.blog.aspect.LogAspect        : Result : blog :: commentList
+2020-06-16 17:21:10.659  INFO 484 --- [http-nio-8080-exec-7] com.example.blog.aspect.LogAspect        : Request : RequestLog{url='http://localhost:8080/', ip='127.0.0.1', ClassMethod='com.example.blog.controller.indexController.index', args=[Page request [number: 0, size 5, sort: creatTime: DESC], {}]}
+2020-06-16 17:21:10.687  INFO 484 --- [http-nio-8080-exec-7] com.example.blog.aspect.LogAspect        : Result : index
+2020-06-16 17:22:47.158  INFO 484 --- [http-nio-8080-exec-2] com.example.blog.aspect.LogAspect        : Request : RequestLog{url='http://localhost:8080/', ip='127.0.0.1', ClassMethod='com.example.blog.controller.indexController.index', args=[Page request [number: 0, size 5, sort: creatTime: DESC], {}]}
+2020-06-16 17:22:47.184  INFO 484 --- [http-nio-8080-exec-2] com.example.blog.aspect.LogAspect        : Result : index
+2020-06-16 17:59:23.086  INFO 484 --- [http-nio-8080-exec-10] com.example.blog.aspect.LogAspect        : Request : RequestLog{url='http://localhost:8080/blog/9', ip='127.0.0.1', ClassMethod='com.example.blog.controller.indexController.blog', args=[9, {}]}
+2020-06-16 17:59:23.102  INFO 484 --- [http-nio-8080-exec-10] com.example.blog.aspect.LogAspect        : Result : blog
+2020-06-16 17:59:23.995  INFO 484 --- [http-nio-8080-exec-7] com.example.blog.aspect.LogAspect        : Request : RequestLog{url='http://localhost:8080/comments/9', ip='127.0.0.1', ClassMethod='com.example.blog.controller.commentController.comments', args=[9, {}]}
+2020-06-16 17:59:24.008  INFO 484 --- [http-nio-8080-exec-7] com.example.blog.aspect.LogAspect        : Result : blog :: commentList
+2020-06-16 17:59:30.678  WARN 484 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=19m4s392ms443µs200ns).
+2020-06-16 18:03:24.026  INFO 484 --- [Thread-195] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-06-16 18:03:24.032  INFO 484 --- [Thread-195] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-06-16 18:03:24.034  INFO 484 --- [Thread-195] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2020-06-16 18:03:24.044  INFO 484 --- [Thread-195] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2020-06-16 18:03:24.472  INFO 484 --- [restartedMain] com.example.blog.BlogApplication         : Starting BlogApplication on LAPTOP-4VJ6SF8Q with PID 484 (D:\Code\blog\target\classes started by Emma in D:\Code\blog)
+2020-06-16 18:03:24.472 DEBUG 484 --- [restartedMain] com.example.blog.BlogApplication         : Running with Spring Boot v2.3.0.RELEASE, Spring v5.2.6.RELEASE
+2020-06-16 18:03:24.472  INFO 484 --- [restartedMain] com.example.blog.BlogApplication         : The following profiles are active: dev
+2020-06-16 18:03:25.079  INFO 484 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-06-16 18:03:25.144  INFO 484 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 64ms. Found 5 JPA repository interfaces.
+2020-06-16 18:03:25.586  INFO 484 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-06-16 18:03:25.586  INFO 484 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-06-16 18:03:25.586  INFO 484 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.35]
+2020-06-16 18:03:25.620  INFO 484 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-06-16 18:03:25.620  INFO 484 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1138 ms
+2020-06-16 18:03:25.772  INFO 484 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-06-16 18:03:25.812  INFO 484 --- [task-1] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-06-16 18:03:25.822  INFO 484 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2020-06-16 18:03:25.829  INFO 484 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2020-06-16 18:03:25.829  INFO 484 --- [task-1] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2020-06-16 18:03:26.126  INFO 484 --- [task-1] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-06-16 18:03:26.126  INFO 484 --- [task-1] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-06-16 18:03:26.164  INFO 484 --- [task-2] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-06-16 18:03:26.232  WARN 484 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-06-16 18:03:27.098  INFO 484 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-06-16 18:03:27.101  INFO 484 --- [restartedMain] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
+2020-06-16 18:03:27.231  INFO 484 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-06-16 18:03:27.233  INFO 484 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-06-16 18:03:27.869  INFO 484 --- [restartedMain] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
+2020-06-16 18:03:27.877  INFO 484 --- [restartedMain] com.example.blog.BlogApplication         : Started BlogApplication in 3.468 seconds (JVM running for 4056.541)
+2020-06-16 18:03:27.881  INFO 484 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 648 ms
+2020-06-16 18:03:27.882  INFO 484 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2020-06-16 18:03:27.887  INFO 484 --- [http-nio-8080-exec-1] com.example.blog.aspect.LogAspect        : Request : RequestLog{url='http://localhost:8080/', ip='0:0:0:0:0:0:0:1', ClassMethod='com.example.blog.controller.indexController.index', args=[Page request [number: 0, size 5, sort: creatTime: DESC], {}]}
+2020-06-16 18:03:27.912  WARN 484 --- [http-nio-8080-exec-1] org.hibernate.orm.deprecation            : HHH90000016: Found use of deprecated 'collection property' syntax in HQL/JPQL query [t.blogs.size]; use collection function syntax instead [size(t.blogs)].
+2020-06-16 18:03:27.939  WARN 484 --- [http-nio-8080-exec-1] org.hibernate.orm.deprecation            : HHH90000016: Found use of deprecated 'collection property' syntax in HQL/JPQL query [t.blogs.size]; use collection function syntax instead [size(t.blogs)].
+2020-06-16 18:03:27.952  INFO 484 --- [http-nio-8080-exec-1] com.example.blog.aspect.LogAspect        : Result : index
+2020-06-16 18:05:34.585  INFO 484 --- [http-nio-8080-exec-6] com.example.blog.aspect.LogAspect        : Request : RequestLog{url='http://localhost:8080/archives/-1', ip='0:0:0:0:0:0:0:1', ClassMethod='com.example.blog.controller.archivesShowController.archives', args=[-1, {}]}
+2020-06-16 18:05:34.601  INFO 484 --- [http-nio-8080-exec-6] com.example.blog.aspect.LogAspect        : Result : archives
+2020-06-16 18:05:38.385  INFO 484 --- [http-nio-8080-exec-9] com.example.blog.aspect.LogAspect        : Request : RequestLog{url='http://localhost:8080/', ip='0:0:0:0:0:0:0:1', ClassMethod='com.example.blog.controller.indexController.index', args=[Page request [number: 0, size 5, sort: creatTime: DESC], {}]}
+2020-06-16 18:05:38.405  INFO 484 --- [http-nio-8080-exec-9] com.example.blog.aspect.LogAspect        : Result : index
+2020-06-16 18:20:23.007  INFO 484 --- [http-nio-8080-exec-8] com.example.blog.aspect.LogAspect        : Request : RequestLog{url='http://localhost:8080/', ip='0:0:0:0:0:0:0:1', ClassMethod='com.example.blog.controller.indexController.index', args=[Page request [number: 0, size 5, sort: creatTime: DESC], {}]}
+2020-06-16 18:20:23.028  INFO 484 --- [http-nio-8080-exec-8] com.example.blog.aspect.LogAspect        : Result : index
+2020-06-16 18:20:26.483  INFO 484 --- [http-nio-8080-exec-1] com.example.blog.aspect.LogAspect        : Request : RequestLog{url='http://localhost:8080/blog/9', ip='0:0:0:0:0:0:0:1', ClassMethod='com.example.blog.controller.indexController.blog', args=[9, {}]}
+2020-06-16 18:20:26.503  INFO 484 --- [http-nio-8080-exec-1] com.example.blog.aspect.LogAspect        : Result : blog
+2020-06-16 18:20:27.287  INFO 484 --- [http-nio-8080-exec-2] com.example.blog.aspect.LogAspect        : Request : RequestLog{url='http://localhost:8080/comments/9', ip='0:0:0:0:0:0:0:1', ClassMethod='com.example.blog.controller.commentController.comments', args=[9, {}]}
+2020-06-16 18:20:27.308  INFO 484 --- [http-nio-8080-exec-2] com.example.blog.aspect.LogAspect        : Result : blog :: commentList
+2020-06-16 18:22:44.782  INFO 484 --- [http-nio-8080-exec-6] com.example.blog.aspect.LogAspect        : Request : RequestLog{url='http://localhost:8080/blog/9', ip='0:0:0:0:0:0:0:1', ClassMethod='com.example.blog.controller.indexController.blog', args=[9, {}]}
+2020-06-16 18:22:44.798  INFO 484 --- [http-nio-8080-exec-6] com.example.blog.aspect.LogAspect        : Result : blog
+2020-06-16 18:22:45.893  INFO 484 --- [http-nio-8080-exec-9] com.example.blog.aspect.LogAspect        : Request : RequestLog{url='http://localhost:8080/comments/9', ip='0:0:0:0:0:0:0:1', ClassMethod='com.example.blog.controller.commentController.comments', args=[9, {}]}
+2020-06-16 18:22:45.910  INFO 484 --- [http-nio-8080-exec-9] com.example.blog.aspect.LogAspect        : Result : blog :: commentList
+2020-06-16 18:23:59.151  INFO 484 --- [http-nio-8080-exec-3] com.example.blog.aspect.LogAspect        : Request : RequestLog{url='http://localhost:8080/blog/9', ip='0:0:0:0:0:0:0:1', ClassMethod='com.example.blog.controller.indexController.blog', args=[9, {}]}
+2020-06-16 18:23:59.167  INFO 484 --- [http-nio-8080-exec-3] com.example.blog.aspect.LogAspect        : Result : blog
+2020-06-16 18:24:00.421  INFO 484 --- [http-nio-8080-exec-4] com.example.blog.aspect.LogAspect        : Request : RequestLog{url='http://localhost:8080/comments/9', ip='0:0:0:0:0:0:0:1', ClassMethod='com.example.blog.controller.commentController.comments', args=[9, {}]}
+2020-06-16 18:24:00.441  INFO 484 --- [http-nio-8080-exec-4] com.example.blog.aspect.LogAspect        : Result : blog :: commentList
+2020-06-16 18:24:54.362  INFO 484 --- [http-nio-8080-exec-8] com.example.blog.aspect.LogAspect        : Request : RequestLog{url='http://localhost:8080/blog/9', ip='0:0:0:0:0:0:0:1', ClassMethod='com.example.blog.controller.indexController.blog', args=[9, {}]}
+2020-06-16 18:24:54.378  INFO 484 --- [http-nio-8080-exec-8] com.example.blog.aspect.LogAspect        : Result : blog
+2020-06-16 18:24:55.335  INFO 484 --- [http-nio-8080-exec-5] com.example.blog.aspect.LogAspect        : Request : RequestLog{url='http://localhost:8080/comments/9', ip='0:0:0:0:0:0:0:1', ClassMethod='com.example.blog.controller.commentController.comments', args=[9, {}]}
+2020-06-16 18:24:55.349  INFO 484 --- [http-nio-8080-exec-5] com.example.blog.aspect.LogAspect        : Result : blog :: commentList
+2020-06-16 20:52:32.663  WARN 484 --- [HikariPool-2 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Thread starvation or clock leap detected (housekeeper delta=2h8m35s978ms638µs).

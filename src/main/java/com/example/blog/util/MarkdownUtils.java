@@ -93,10 +93,10 @@ public class MarkdownUtils {
         String s4 = "*斜体的test*";
 
 
-        System.out.println(markdownToHtmlExtensions(s1));
+        /*System.out.println(markdownToHtmlExtensions(s1));
         System.out.println(markdownToHtmlExtensions(s2));
         System.out.println(markdownToHtmlExtensions(s3));
-        System.out.println(markdownToHtmlExtensions(s4));
-        //System.out.println(markdownToHtmlExtensions(a));
+        System.out.println(markdownToHtmlExtensions(s4));*/
+        System.out.println(markdownToHtmlExtensions(a));
     }
 }

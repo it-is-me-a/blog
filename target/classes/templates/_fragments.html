@@ -33,7 +33,7 @@
             <div class="right m-item item m-mobile-hide">
                 <form name="search" method="post" action="#" th:action="@{/search}" target="_blank">
                     <div class="ui icon input"> <!--这个div中可以放icon图标，也可以放input输入框-->
-                        <input type="text" name="query" placeholder="Search..." th:placeholder="${time}" th:value="${query}">
+                        <input type="text" name="query" placeholder="Search..." th:placeholder="${countdown}" th:value="${query}">
                         <i onclick="document.forms['search'].submit()" class="search link icon"></i>
                     </div>
                 </form>
@@ -50,7 +50,7 @@
 
 <!--看板娘-->
 <div th:fragment="kanbanniang" id="landlord">
-    <div class="message" style="opacity:0"></div><!--style="opacity:0"设置透明度-->
+    <div class="kanbanniangmessage" style="opacity:0"></div><!--style="opacity:0"设置透明度-->
     <canvas id="live2d" width="280" height="250"></canvas><!--mycanvas-->
 </div>
 
@@ -112,13 +112,12 @@
     <!--引入生成二维码的组件-->
     <script src="../static/lib/qrcode/qrcode.min.js" th:src="@{/lib/qrcode/qrcode.min.js}"></script>
     <!--引入平滑滚动的组件-->
-    <script src="//cdn.jsdelivr.net/npm/jquery.scrollto@2.1.2/jquery.scrollTo.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery.scrollto@2.1.2/jquery.scrollTo.min.js"></script>
     <!--引入滚动侦测的组件-->
     <!--<script src="../static/lib/waypoints/jquery.waypoints.min.js" th:src="@{/lib/waypoints/jquery.waypoints.min.js}"></script>-->
     <!--引入看板娘-->
     <script src="../static/lib/live2d/js/live2d.min.js" th:src="@{/lib/live2d/js/live2d.min.js}"></script>
-    <script src="../static/lib/live2d/js/message.js" th:src="@{/lib/live2d/js/message.js}"></script>
-    <script src="../static/lib/live2d/js/jquery.min.js" th:src="@{/lib/live2d/js/jquery.min.js}"></script>
+    <script src="../static/lib/live2d/js/kanbanniangmessage.js" th:src="@{/lib/live2d/js/kanbanniangmessage.js}"></script>
 
 
 </th:block>
@@ -127,7 +126,7 @@
     <!--看板娘-->
     <script>
         var message_Path = '/lib/live2d/'
-        var home_Path = 'http://localhost:8080/'  //此处修改为你的域名，必须带斜杠
+        var home_Path = 'http://118.190.56.128/'  //此处修改为你的域名，必须带斜杠
     </script>
 
     <script>
