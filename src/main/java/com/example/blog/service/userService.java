@@ -10,4 +10,6 @@ public interface userService {
 
     User checkUser(String username, String password);
 
+    Integer updateuserPrsonalviews(Integer index);//更新博客访客人数
+
 }

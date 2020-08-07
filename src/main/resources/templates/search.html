@@ -52,11 +52,6 @@
 											<div class="item"><i class="eye icon"></i><span th:text="${blog.views}">1000</span></div>
 										</div>
 									</div>
-
-									<!--标签-->
-									<!--<div class="right aligned five wide column">
-										<a href="#" target="_blank" class="ui teal basic label m-padded-mini m-text-thin" th:text="${blog.type.typeName}">认知升级</a>
-									</div>-->
 								</div>
 							</div>
 
@@ -90,15 +85,13 @@
 			</div>		
 		</div>
 		
-			
-		
-		<br /><br />
+
 		<!--底部-->
 		<footer th:replace="_fragments :: footer"></footer>
 
 
 
-		<!--/*/<th:block th:replace="_fragments :: script">/*/--><!--/*/</th:block>/*/-->
+		<th:block th:replace="_fragments :: script"></th:block>
 
 		<!--写自己的js样式 -->
 		<script>

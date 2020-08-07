@@ -27,23 +27,25 @@ public class indexController {
     private tagService tagService;
 
     @GetMapping({"/","/index.html"})
-    public String index(@PageableDefault(size=5, sort = {"creatTime"}, direction = Sort.Direction.DESC) Pageable pageable,
+    public String index(@PageableDefault(size=8, sort = {"creatTime"}, direction = Sort.Direction.DESC) Pageable pageable,
                         Model model){
         /*拿到blog,type,tag的数据显示在首页*/
         model.addAttribute("page",blogService.listBlog(pageable));
         /*拿到排名前8的type展示在对应区域*/
         model.addAttribute("types",typeService.listTypeTop(8));
-        /*拿到排名前10的tag展示在对应区域*/
-        model.addAttribute("tags",tagService.listTagTop(10));
+        /*拿到排名前10的tag展示在对应区域*//*
+        model.addAttribute("tags",tagService.listTagTop(10));*/
         /*拿到高考倒计*/
         model.addAttribute("countdown", TimerUtil.fun());
-        /*拿到排名前5的文章展示在对应区域*/
+        /*拿到排名前5的文章展示在热门文章*/
         model.addAttribute("recommendBlogs",blogService.listRecommendBlogTop(5));
+        /*拿到最新的前5的文章展示在最新文章*/
+        model.addAttribute("NewBlogs",blogService.listRecommendBlogTop(5));
         return "index";
     }
 
     @PostMapping("/search")
-    public String search(@PageableDefault(size=5, sort = {"creatTime"}, direction = Sort.Direction.DESC) Pageable pageable,
+    public String search(@PageableDefault(size=8, sort = {"creatTime"}, direction = Sort.Direction.DESC) Pageable pageable,
                          @RequestParam String query,
                          Model model){
         model.addAttribute("page",blogService.listBlog("%"+query+"%",pageable));

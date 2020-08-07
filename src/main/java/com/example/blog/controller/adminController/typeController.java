@@ -34,7 +34,7 @@ public class typeController {
         @PageableDefault(size=10,sort = {"id"},direction = Sort.Direction.DESC)  指定分页的一些配置：大小为10，按照id排序，逆序排序
      */
     @GetMapping("/types")
-    public String types(@PageableDefault(size = 3,sort = {"id"},direction = Sort.Direction.DESC) Pageable pageable,
+    public String types(@PageableDefault(size = 10,sort = {"id"},direction = Sort.Direction.DESC) Pageable pageable,
                         Model model){
         model.addAttribute("page",typeService.listType(pageable));
         return "admin/types";

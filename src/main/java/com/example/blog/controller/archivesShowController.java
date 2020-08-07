@@ -20,16 +20,6 @@ public class archivesShowController {
     @Autowired
     private blogService blogService;
 
-    /*
-    @GetMapping("/archives")
-    public String archives(Model model){
-        //这里的blogService.archivesBlog()返回的是Map<String, List<Blog>>
-        model.addAttribute("archivesMap", blogService.archivesBlog());
-        model.addAttribute("blogCount",blogService.countBlog());
-        return "archives";
-    }
-    */
-
     @GetMapping("/archives/{time}")
     public String archives(@PathVariable String time,
                            Model model){

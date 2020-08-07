@@ -25,6 +25,8 @@ public class User {
     private Date createTime;
     @Temporal(TemporalType.TIMESTAMP)
     private Date updateTime;
+    //访问客人数量
+    private Integer personalviews;
 
     @OneToMany(mappedBy = "user")
     private List<Blog> blogs = new ArrayList<>();
@@ -37,13 +39,15 @@ public class User {
         return "User{" +
                 "id=" + id +
                 ", nickName='" + nickName + '\'' +
-                ", userName='" + username + '\'' +
+                ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", email='" + email + '\'' +
                 ", avatar='" + avatar + '\'' +
                 ", type=" + type +
                 ", createTime=" + createTime +
                 ", updateTime=" + updateTime +
+                ", personalviews=" + personalviews +
+                ", blogs=" + blogs +
                 '}';
     }
 
@@ -63,11 +67,11 @@ public class User {
         this.nickName = nickName;
     }
 
-    public String getUserName() {
+    public String getUsername() {
         return username;
     }
 
-    public void setUserName(String username) {
+    public void setUsername(String username) {
         this.username = username;
     }
 
@@ -125,5 +129,13 @@ public class User {
 
     public void setBlogs(List<Blog> blogs) {
         this.blogs = blogs;
+    }
+
+    public Integer getPersonalviews() {
+        return personalviews;
+    }
+
+    public void setPersonalviews(Integer personalviews) {
+        this.personalviews = personalviews;
     }
 }

@@ -23,4 +23,11 @@ public class userServiceImpl implements userService {
         return user;
 
     }
+
+    @Override
+    public Integer updateuserPrsonalviews(Integer index) {
+        return userRepository.updatePrsonalviews(index);
+    }
+
+
 }

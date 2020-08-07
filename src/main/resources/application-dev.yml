@@ -20,3 +20,9 @@ logging:
     com.example.blog: debug
   file:
     name: log/blog-dev.log
+
+server:
+  port: 80
+
+blog:
+  serurl: http://it-is-me-a.icu/blog

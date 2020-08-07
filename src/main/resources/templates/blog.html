@@ -3,7 +3,7 @@
 	<head th:replace="_fragments :: head(~{::title})">
 		<title>博客详情</title>
 	</head>
-	<body onload="InitLive2D()">
+	<body>
 
 		<!--导航-->
 		<nav th:replace="_fragments :: menu(1)"></nav>
@@ -19,14 +19,14 @@
 						<!--头像+名字-->
 						<div class="item">
 							<!--图片大小：100X100-->
-							<img src="../static/img/头像.jpg" th:src="@{${blog.user.avatar}}" alt="" class="ui avatar image" />
+							<img src="" th:src="@{${blog.user.avatar}}" alt="" class="ui avatar image" />
 							<!--名字-->
-							<div class="content"> <a href="#" class="header" th:text="${blog.user.nickName}">Emma</a> </div>
+							<div class="content"> <a href="#" class="header" th:text="${blog.user.nickName}"></a> </div>
 						</div>
 						<!--时间-->
 						<div class="item"> <i class="calendar alternate outline icon"></i><span th:text="${#dates.format(blog.creatTime,'yyyy-MM-dd')}">2020-05-16</span></div>
 						<!--访问量-->
-						<div class="item">  <i class="eye icon"></i> <span th:text="${blog.views}">1000</span> </div>
+						<div class="item"> <i class="eye icon"></i> <span th:text="${blog.views}"></span> </div>
 						
 					</div>			
 				</div>
@@ -35,8 +35,6 @@
 				<div class="ui attached segment"><!--attached与上面接着-->
 					<img src="../static/img/博客图片1.jpg" alt="" th:src="@{${blog.firstPicture}}" class="ui fluid image rounded" />  <!--fluid充满外层的segment-->
 				</div>
-
-
 
 				<!--Blog内容区域-->
 				<div class="ui attached padded segment">
@@ -85,8 +83,8 @@
 						<div>
 							<div class="m-padded-tb-button"> 博客信息 </div>
 							<ui class="list">
-								<li>作者：<span th:text="${blog.user.nickName}">Emma</span> <a href="#" th:href="@{/about}" target="_blank">（联系作者）</a></li>
-								<li>发表时间：<span th:text="${#dates.format(blog.creatTime,'yyyy-MM-dd HH:mm')}">2020-05-16</span></li>
+								<li>作者：<span th:text="${blog.user.nickName}"></span></li>
+								<li>发表时间：<span th:text="${#dates.format(blog.creatTime,'yyyy-MM-dd HH:mm')}"></span></li>
 								<li>版权声明：本文为博主「Emma」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。</li>
 								<li>公众号转载：请在文末添加作者公众号二维码</li>
 							</ui>							
@@ -95,7 +93,7 @@
 				</div>
 				
 				<!--留言-->
-				<div class="ui bottom attached segment" th:if="${blog.commentabled}"><!--th:if="${blog.commentabled}"如果为true在显示评论-->
+				<div class="ui bottom attached segment" th:if="${blog.commentabled}">
 					<!--留言区域-->
 					<div id="comment-container" class="ui teal segment">
 						<div th:fragment="commentList">
@@ -103,7 +101,7 @@
 								<h3 class="ui dividing header">评论</h3>
 
 								<div class="comment" th:each="comment : ${comments}">
-									<a class="avatar"> <img src="../static/img/头像.jpg" th:src="@{${comment.avatar}}"> </a>
+									<a class="avatar"> <img src="" th:src="@{${comment.avatar}}"> </a>
 									<div class="content">
 										<a class="author">
 											<span th:text="${comment.nickName}">Matt</span>
@@ -187,33 +185,17 @@
 		</div>
 		
 		<!--微信二维码-->
-		<div id="qr-code" class="ui wechatQR flowing popup transition hidden" style="width: 120px !important;">
-			<!--<img src="static/img/wechat.jpg" alt="" class="ui rounded image" style="width: 120px !important;"/>-->
-		</div>
+		<div id="qr-code" class="ui wechatQR flowing popup transition hidden" style="width: 120px !important;"></div>
 
-		<div th:replace="_fragments :: kanbanniang" id="landlord">
-			<div class="message" style="opacity:0"></div><!--style="opacity:0"设置透明度-->
-			<canvas id="live2d" width="280" height="250"></canvas><!--mycanvas-->
-		</div>
-		
 		<!--底部-->
-		<br /><br />
 		<footer th:replace="_fragments :: footer"></footer>
 
+		<!--script-->
+        <th:block th:replace="_fragments :: script"></th:block>
 
-
-		<!--/*/<th:block th:replace="_fragments :: script">/*/-->
-			<script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
-			<script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
-			<script src="../static/lib/prism/prism.js"></script>
-			<script src="../static/lib/tocbot/tocbot.min.js"></script>
-			<script src="../static/lib/qrcode/qrcode.min.js"></script>
-			<script src="//cdn.jsdelivr.net/npm/jquery.scrollto@2.1.2/jquery.scrollTo.min.js"></script>
-		<!--/*/</th:block>/*/-->
-
-		<!--写自己的js样式 -->
+		<!--本页面自己的js样式 -->
 		<script th:inline="javascript">
-			/*处理：menu toggle，要写成：menu.toggle*/
+			/*处理：menu toggle*/
 			$('.menu.toggle').click(function(){
 				$('.m-item').toggleClass('m-mobile-hide');  /*意思是如果有m-mobile-hide样式，一点击就取消；如果没有，一点击就出现*/
 			});
@@ -238,24 +220,25 @@
 				on : 'click',    /*按下时出现*/
 				position : 'left center'  /*位置*/
 			});
+
+            /*生成二维码*/
+            var serurl = "http://it-is-me-a.icu/blog";  //[[#{blog.serurl}]];
+            var url = /*[[@{/blog/{id}(id=${blog.id})}]]*/"";
+            var qrcode = new QRCode("qr-code", {
+                text: serurl+url,
+                width: 110,
+                height: 110,
+                colorDark : "#000000",
+                colorLight : "#ffffff",
+                correctLevel : QRCode.CorrectLevel.H
+            });
 			
-			/*wechat*/
+			/*显示wechat二维码*/
 			$('.wechatt').popup({
 				popup : $('.wechatQR'), /*鼠标放上去显示微信二维码*/
 				position : 'left center'  /*位置*/
 			});
-			
-			/*生成二维码*/
-			var serurl = /*[[#{blog.serurl}]]*/"http://localhost:8080";
-			var url = /*[[@{/blog/{id}(id=${blog.id})}]]*/"";
-			var qrcode = new QRCode("qr-code", {
-			    text: serurl+url,
-			    width: 110,
-			    height: 110,
-			    colorDark : "#000000",
-			    colorLight : "#ffffff",
-			    correctLevel : QRCode.CorrectLevel.H
-			});
+
 			
 			/*点击平滑滚动到最上面*/
 			$('#toTop-button').click(function(){
@@ -292,7 +275,7 @@
 
             /*加载blog时要加载评论*/
             $(function () {
-                $("#comment-container").load(/*[[@{/comments/{id}(id=${blog.id})}]]*/"comments/6");
+                $("#comment-container").load("comments/6"); /*[[@{/comments/{id}(id=${blog.id})}]]*/
             });
 
 
@@ -338,11 +321,5 @@
 			}
 	
 		</script>
-
-		<!--/*/<th:block th:replace="_fragments :: kanbanniangscript">/*/-->
-		<!--看板娘-->
-
-		<!--/*/</th:block>/*/-->
-		
 	</body>
 </html>

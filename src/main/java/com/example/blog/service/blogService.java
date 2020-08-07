@@ -34,6 +34,8 @@ public interface blogService {
 
     List<Blog> listRecommendBlogTop(Integer index);/*拿到排名前几的文章，按照views的倒序进行排列*/
 
+    List<Blog> listRecommendBlogNew(Integer index);/*拿到排名前几的文章，按照日期的倒序进行排列*/
+
     List<String> blogCreateTime();/*查出所有的博客的创建时间*/
 
     Map<String,List<Blog>> archivesBlog();/*查出对应日期的博客，这里的日期也是从数据库查出来的*/

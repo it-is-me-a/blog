@@ -16,5 +16,6 @@ logging:
     com.example.blog: info
   file:
     name: log/blog-pro.log
-server:
-  port: 8081
+
+blog:
+  serurl: http://it-is-me-a.icu/blog

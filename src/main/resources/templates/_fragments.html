@@ -5,8 +5,10 @@
     <!--这是移动端预览设置-->
     <meta typeName="viewport" content="width=device-width, initial-scale=1.0" />
     <title th:replace="${title}">博客详情页</title>
+    <link href="../static/images/favicon.ico" th:href="@{/favicon.ico}" rel="icon" type="image/x-ico">
     <!--引入Semantic UI-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+    <link rel="stylesheet" href="../static/lib/editorMarkdown/css/editormd.css" th:href="@{/lib/editorMarkdown/css/editormd.css}"/>
     <link rel="stylesheet" href="../static/css/typo.css" th:href="@{/css/typo.css}"/>
     <link rel="stylesheet" href="../static/css/animate.css" th:href="@{/css/animate.css}"/>
     <link rel="stylesheet" href="../static/lib/prism/prism.css" th:href="@{/lib/prism/prism.css}"/>
@@ -23,20 +25,14 @@
     <!--添加一个导航组件-->
     <div class="ui container">
         <div class="ui inverted secondary stackable menu"><!--stackable为的是手机端的导航：可堆叠的-->
-            <h2 class="ui teal header item">Blog</h2>
+            <h2 class="ui teal header item">Emma</h2>
             <a href="#" th:href="@{/}" class="m-item item m-mobile-hide" th:classappend="${n==1} ? 'active'"><i class="home icon"></i>首页</a><!--th:classappend=""在class后面添加内容-->
             <a href="#" th:href="@{/types/-1}" class="m-item item m-mobile-hide" th:classappend="${n==2} ? 'active'"><i class="idea icon"></i>分类</a>
-            <a href="#" th:href="@{/tags/-1}" class="m-item item m-mobile-hide" th:classappend="${n==3} ? 'active'"><i class="tags icon"></i>标签</a>
+            <!--<a href="#" th:href="@{/tags/-1}" class="m-item item m-mobile-hide" th:classappend="${n==3} ? 'active'"><i class="tags icon"></i>标签</a>-->
             <a href="#" th:href="@{/archives/-1}" class="m-item item m-mobile-hide" th:classappend="${n==4} ? 'active'"><i class="clone icon"></i>归档</a>
-            <a href="#" th:href="@{/about}" class="m-item item m-mobile-hide" th:classappend="${n==5} ? 'active'"><i class="info icon"></i>关于我</a>
-            <!--加入搜索框-->
+            <!--后台登录-->
             <div class="right m-item item m-mobile-hide">
-                <form name="search" method="post" action="#" th:action="@{/search}" target="_blank">
-                    <div class="ui icon input"> <!--这个div中可以放icon图标，也可以放input输入框-->
-                        <input type="text" name="query" placeholder="Search..." th:placeholder="${countdown}" th:value="${query}">
-                        <i onclick="document.forms['search'].submit()" class="search link icon"></i>
-                    </div>
-                </form>
+                <a href="#" th:href="@{/admin}" class="m-item item m-mobile-hide" target="_blank">后台登录</a>
             </div>
         </div>
     </div>
@@ -48,53 +44,20 @@
 
 </nav>
 
-<!--看板娘-->
-<div th:fragment="kanbanniang" id="landlord">
-    <div class="kanbanniangmessage" style="opacity:0"></div><!--style="opacity:0"设置透明度-->
-    <canvas id="live2d" width="280" height="250"></canvas><!--mycanvas-->
-</div>
 
 
-
-<!--底部-->
-<footer th:fragment="footer" class="ui inverted vertical segment m-padded-tb-large"><!--vertical取消圆角-->
-    <!--加一个容器-->
-    <div class="ui center aligned container"><!-- center aligned居中-->
-        <!--做一些一列一列的布局，一共分为16分-->
-        <div class="ui inverted divided stackable grid"><!--divided分割样式-->
-
-
-            <div class="eight wide column">
-                <h4 class="ui inverted header">个人介绍</h4>
-                <p class="m-text-thin m-text-spaced m-opacity-tiny">这里是我的个人博客、我会在这里分享关于编程、且不限于编程的内容。如果你喜欢我的内容，欢迎分享我的博客。</p>
-            </div>
-
-
-
-            <div class="five wide column">
-                <h4 class="ui inverted header">联系我</h4>
-                <div class="ui inverted link list">
-                    <a href="#" class="item" th:text="#{index.email}">Email: zhangzeqing001@gmail.com</a><!--#{}取得是配置文件的内容-->
-                    <a href="#" class="item" th:text="#{index.QQ}">QQ: 12345678</a>
-                </div>
-            </div>
-
-            <!--占3份-->
-            <div class="three wide column">
-                <div class="ui inverted link list">
-                    <div class="item">
-                        <img src="../static/img/wechat.jpg" th:src="@{/img/wechat.jpg}" class="ui rounded image" alt="" style="width: 110px"/>
-                    </div>
-                </div>
-            </div>
-
-
+<!--新的底部-->
+<footer th:fragment="footer" class="ui inverted vertical segment m-padded-tb" style="top: 100%;">
+    <div class="ui center aligned container">
+        <div class="ui inverted m-text-thin m-text-spaced">
+            欢迎来到我的客栈，我已营业：<span id="htmer_time" class="item m-text-thin"></span>，
+            <span id="busuanzi_container_site_uv" style='display:none'>您是我接待的第
+                <span id="busuanzi_value_site_uv"></span>位客人。
+            </span>
+            <span id="busuanzi_container_site_pv" >(总访问量 <span id="busuanzi_value_site_pv"></span> 次) </span>
         </div>
-
-        <!--画一条线-->
-        <!--<div class="ui inverted section divider"></div>
-        <p class="m-text-thin m-text-spaced m-opacity-tiny">Copyright © 2016 - 2017 Lirenmi Designed by Lirenmi</p>
--->
+        <div class="ui divider"></div>
+        <a href="http://www.beian.miit.gov.cn/" target="_blank" style="color: gray ">陕ICP备20009864号-1</a>
     </div>
 </footer>
 
@@ -115,96 +78,74 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery.scrollto@2.1.2/jquery.scrollTo.min.js"></script>
     <!--引入滚动侦测的组件-->
     <!--<script src="../static/lib/waypoints/jquery.waypoints.min.js" th:src="@{/lib/waypoints/jquery.waypoints.min.js}"></script>-->
-    <!--引入看板娘-->
-    <script src="../static/lib/live2d/js/live2d.min.js" th:src="@{/lib/live2d/js/live2d.min.js}"></script>
-    <script src="../static/lib/live2d/js/kanbanniangmessage.js" th:src="@{/lib/live2d/js/kanbanniangmessage.js}"></script>
-
-
-</th:block>
-
-<th:block th:fragment="kanbanniangscript">
-    <!--看板娘-->
-    <script>
-        var message_Path = '/lib/live2d/'
-        var home_Path = 'http://118.190.56.128/'  //此处修改为你的域名，必须带斜杠
-    </script>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
     <script>
-        var u = "/lib/live2d/model/Pio/model.json"
-        var LAppDefine = {
-            // 调试，true时会在console里显示日志
-            DEBUG_LOG : true,
-            DEBUG_MOUSE_LOG : false, // 鼠标相关日志
-            //  全部设定
-            //这里配置canvsa元素的id
-            CANVAS_ID : "live2d",
-            //是否开启滚轮缩放，默认true
-            IS_SCROLL_SCALE : true,
-            // 画面最大缩放级别
-            VIEW_MAX_SCALE : 2,
-            // 画面最小缩放级别
-            VIEW_MIN_SCALE : 0.8,
+        // 运行时间统计
+        function secondToDate(second) {
+            if (!second) {
+                return 0;
+            }
+            var time = new Array(0, 0, 0, 0, 0);
+            if (second >= 365 * 24 * 3600) {
+                time[0] = parseInt(second / (365 * 24 * 3600));
+                second %= 365 * 24 * 3600;
+            }
+            if (second >= 24 * 3600) {
+                time[1] = parseInt(second / (24 * 3600));
+                second %= 24 * 3600;
+            }
+            if (second >= 3600) {
+                time[2] = parseInt(second / 3600);
+                second %= 3600;
+            }
+            if (second >= 60) {
+                time[3] = parseInt(second / 60);
+                second %= 60;
+            }
+            if (second > 0) {
+                time[4] = second;
+            }
+            return time;
+        }
+        function setTime() {
+            /*此处为网站的创建时间*/
+            var create_time = Math.round(new Date(Date.UTC(2020, 6, 8, 15, 15, 15)).getTime() / 1000);
+            var timestamp = Math.round((new Date().getTime() + 8 * 60 * 60 * 1000) / 1000);
+            currentTime = secondToDate((timestamp - create_time));
+            currentTimeHtml = currentTime[0] + '年' + currentTime[1] + '天'
+                + currentTime[2] + '时' + currentTime[3] + '分' + currentTime[4]
+                + '秒';
+            document.getElementById("htmer_time").innerHTML = currentTimeHtml;
+        }
+        setInterval(setTime, 1000);
 
-            VIEW_LOGICAL_LEFT : -1,
-            VIEW_LOGICAL_RIGHT : 1,
 
-            VIEW_LOGICAL_MAX_LEFT : -2,
-            VIEW_LOGICAL_MAX_RIGHT : 2,
-            VIEW_LOGICAL_MAX_BOTTOM : -2,
-            VIEW_LOGICAL_MAX_TOP : 2,
+        $(document).ready(function() {
 
-            // 动作优先级常量
-            PRIORITY_NONE : 0,
-            PRIORITY_IDLE : 1,
-            PRIORITY_NORMAL : 2,
-            PRIORITY_FORCE : 3,
+            var int = setInterval(fixCount, 50);  // 50ms周期检测函数
+            var countOffset = 100;  // 初始化首次数据
 
-            //是否绑定切换模型按钮
-            IS_BIND_BUTTON : false,
-            //绑定按钮元素id
-            BUTTON_ID : "Change",
-            //是否开启模型切换完成之前禁止按钮点击的选项，默认为true
-            IS_BAN_BUTTON : true,
-            //设置按钮禁止状态时的class，可自定义样式，前提是IS_BAN_BUTTON为true
-            BAN_BUTTON_CLASS : "inactive",
-            //设置按钮正常状态时的class
-            NORMAL_BUTTON_CLASS : "active",
-            //衣服切换模式 目前只支持两种 sequence-顺序 random-随机
-            //需事先配置好json文件里的textures属性
-            //暂不支持保存功能
-            TEXURE_CHANGE_MODE : "sequence",
-            IS_START_TEXURE_CHANGE : true,
-            TEXURE_BUTTON_ID : "live2d",
-            /**
-             *  模型定义
-             自定义配置模型，同一数组内放置两个模型则为开启双模型
-             三模型也只取数组里的前两个
-             模型出现的顺序与数组一致
-             这里请用相对路径配置
-             */
-            MODELS:
-                [
-                    [u]
-                ],
+            function fixCount() {
+                if (document.getElementById("busuanzi_container_site_pv").style.display != "none")
+                {
+                    $("#busuanzi_value_site_pv").html(parseInt($("#busuanzi_value_site_pv").html()) + countOffset);
+                    clearInterval(int);
+                }
+                if ($("#busuanzi_container_site_pv").css("display") != "none")
+                {
+                    $("#busuanzi_value_site_uv").html(parseInt($("#busuanzi_value_site_uv").html()) + countOffset); // 加上初始数据
+                    clearInterval(int); // 停止检测
+                }
+            }
 
-            // 与外部定义的json文件匹配
-            MOTION_GROUP_IDLE : "idle", // 空闲时
-            MOTION_GROUP_TAP_BODY : "tap_body", // 点击身体时
-            MOTION_GROUP_FLICK_HEAD : "flick_head", // 抚摸头部
-            MOTION_GROUP_PINCH_IN : "pinch_in", // 放大时
-            MOTION_GROUP_PINCH_OUT : "pinch_out", // 缩小时
-            MOTION_GROUP_SHAKE : "shake", // 摇晃
-            //如果有自定义的动作分组可以放在这里
+        });
 
-            // 与外部定义json文件相匹配
-            HIT_AREA_HEAD : "head",
-            HIT_AREA_BODY : "body",
 
-            //初始化的模型大小
-            SCALE : 1.0
-        };
+
     </script>
 </th:block>
+
 
 </body>
 </html>

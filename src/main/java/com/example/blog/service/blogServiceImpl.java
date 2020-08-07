@@ -126,6 +126,12 @@ public class blogServiceImpl implements blogService {
     }
 
     @Override
+    public List<Blog> listRecommendBlogNew(Integer index) {
+        Pageable pageable = PageRequest.of(0,index, Sort.by(Sort.Direction.DESC,"creatTime"));/*按照creatTime的倒序进行排列*/
+        return blogRepository.findTop(pageable);
+    }
+
+    @Override
     public List<String> blogCreateTime() {
         return blogRepository.findGroupYear();
     }

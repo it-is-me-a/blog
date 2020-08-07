@@ -32,6 +32,7 @@ public class loginController {
         User user = userService.checkUser(username, password);
         if(user != null){
             user.setPassword(null);//不要把密码传到前端
+            //更新用户的访客人数  userService.updateuserPrsonalviews();
             session.setAttribute("user",user);
             return "admin/homePage";
         }else{
